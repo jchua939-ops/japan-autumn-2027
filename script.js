@@ -1,3 +1,4 @@
+
 /* ==================================
    LEFT-SIDE DESTINATION PREVIEW
 ================================== */
@@ -78,17 +79,8 @@ document.getElementById("itinerary").addEventListener("click", function(e) {
 ================================== */
 
 const animatedElements = document.querySelectorAll(
-  ".day-inner > *, " +
-  ".hero-content > *, " +
-  ".panel > *, " +
-  ".weather-heading > *, " +
-  ".weather-notice, " +
-  ".weather-card, " +
-  ".weather-source, " +
-  ".route-item, " +
-  ".budget-row, " +
-  ".savings-box, " +
-  ".place-card"
+  ".day-inner > *, .hero-content > *, .panel > *, " +
+  ".route-item, .budget-row, .savings-box, .place-card"
 );
 
 const revealObserver = new IntersectionObserver(entries => {
@@ -139,110 +131,7 @@ window.addEventListener("scroll", () => {
 updateParallax();
 
 
-(function () {
-  const weatherDestinations = [
-    {
-      day: "DAY 01–04",
-      name: "Osaka",
-      location: "Dotonbori · Osaka Castle · USJ",
-      high: "12–18°C",
-      low: "5–10°C",
-      tip: "Comfortable layers, sweaters and a medium jacket.",
-      query: "Osaka Japan"
-    },
-    {
-      day: "DAY 03",
-      name: "Nara",
-      location: "Nara Park · Todai-ji · Naramachi",
-      high: "11–17°C",
-      low: "3–8°C",
-      tip: "Bring a warm jacket, especially for the afternoon return.",
-      query: "Nara Japan"
-    },
-    {
-      day: "DAY 05–07",
-      name: "Kyoto",
-      location: "Gion · Fushimi Inari · Arashiyama",
-      high: "11–17°C",
-      low: "3–8°C",
-      tip: "Layer up for temple visits and evening walks.",
-      query: "Kyoto Japan"
-    },
-    {
-      day: "DAY 08",
-      name: "Hakone",
-      location: "Lake Ashi · Hakone Shrine",
-      high: "6–14°C",
-      low: "-1–7°C",
-      tip: "Wear a warm coat. Temperatures vary with altitude.",
-      query: "Hakone Japan"
-    },
-    {
-      day: "DAY 09",
-      name: "Kawaguchiko",
-      location: "Lake Kawaguchi · Oishi Park",
-      high: "7–12°C",
-      low: "-3–3°C",
-      tip: "Prepare thermal layers, gloves and a warm jacket.",
-      query: "Lake Kawaguchi Japan"
-    },
-    {
-      day: "DAY 09",
-      name: "Mount Fuji Viewpoints",
-      location: "Chureito Pagoda · Fuji viewing areas",
-      high: "3–10°C",
-      low: "-5–2°C",
-      tip: "Expect colder conditions at exposed and elevated viewpoints.",
-      query: "Mount Fuji Japan"
-    },
-    {
-      day: "DAY 10–13",
-      name: "Tokyo",
-      location: "Shibuya · Asakusa · Harajuku · Ginza",
-      high: "11–17°C",
-      low: "3–9°C",
-      tip: "A sweater and winter jacket should be useful.",
-      query: "Tokyo Japan"
-    }
-  ];
-
-  const weatherGrid = document.getElementById("weatherGrid");
-
-  if (!weatherGrid) return;
-
-  weatherGrid.innerHTML = weatherDestinations.map(place => `
-    <article class="weather-card">
-      <span class="weather-day">${place.day}</span>
-      <h3>${place.name}</h3>
-      <p class="weather-location">${place.location}</p>
-
-      <div class="weather-temperatures">
-        <div class="weather-temp">
-          <span>DAYTIME HIGH</span>
-          <strong>${place.high}</strong>
-        </div>
-        <div class="weather-temp">
-          <span>NIGHT / LOW</span>
-          <strong>${place.low}</strong>
-        </div>
-      </div>
-
-      <p class="weather-tip">${place.tip}</p>
-
-      <a class="weather-link"
-         href="https://www.google.com/search?q=${encodeURIComponent(
-           "weather forecast " + place.query
-         )}"
-         target="_blank"
-         rel="noopener">
-        Check Live Weather ↗
-      </a>
-    </article>
-  `).join("");
-})();
-
 /* ==================================
    NAVIGATION DOTS
 ================================== */
-
 
