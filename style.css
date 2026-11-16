@@ -6,6 +6,10 @@
 .day-inner > *,
 .hero-content > *,
 .panel > *,
+.weather-heading > *,
+.weather-notice,
+.weather-card,
+.weather-source,
 .route-item,
 .budget-row,
 .savings-box {
