@@ -236,3 +236,41 @@ updateParallax();
    NAVIGATION DOTS
 ================================== */
 
+document.addEventListener("DOMContentLoaded", function () {
+  const grid = document.getElementById("weatherGrid");
+
+  if (!grid) {
+    console.error("Weather grid not found!");
+    return;
+  }
+
+  grid.innerHTML = `
+    <article class="weather-card">
+      <span class="weather-day">DAY 01–04</span>
+      <h3>Osaka</h3>
+      <p class="weather-location">Dotonbori · Osaka Castle · USJ</p>
+
+      <div class="weather-temperatures">
+        <div class="weather-temp">
+          <span>DAYTIME HIGH</span>
+          <strong>12–18°C</strong>
+        </div>
+        <div class="weather-temp">
+          <span>NIGHT / LOW</span>
+          <strong>5–10°C</strong>
+        </div>
+      </div>
+
+      <p class="weather-tip">
+        Comfortable layers, sweaters and a medium jacket.
+      </p>
+
+      <a class="weather-link"
+         href="https://www.google.com/search?q=Osaka+weather"
+         target="_blank">
+        Check Live Weather ↗
+      </a>
+    </article>
+  `;
+});
+
