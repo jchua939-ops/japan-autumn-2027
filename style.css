@@ -16,6 +16,155 @@
     transform 1s cubic-bezier(.2,.7,.2,1);
 }
 
+
+/* JAPAN WEATHER SECTION */
+
+.weather-section {
+  padding: 100px 7%;
+  background: #111412;
+  color: #f5f1e9;
+}
+
+.weather-heading {
+  max-width: 650px;
+  margin-bottom: 35px;
+}
+
+.weather-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 400;
+  margin: 12px 0;
+}
+
+.weather-heading p {
+  color: #aaa;
+  line-height: 1.8;
+}
+
+.weather-notice {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 15px 18px;
+  border: 1px solid #424943;
+  margin-bottom: 30px;
+  color: #c7c9c5;
+  font-size: 0.85rem;
+}
+
+.weather-notice p {
+  margin: 0;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.weather-card {
+  padding: 25px;
+  background: #1b211e;
+  border: 1px solid #343d37;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  border-color: #b5a17c;
+}
+
+.weather-card .weather-day {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #b5a17c;
+}
+
+.weather-card h3 {
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 12px 0 5px;
+}
+
+.weather-card .weather-location {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.weather-temperatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.weather-temp {
+  background: #252d28;
+  padding: 15px 10px;
+}
+
+.weather-temp span {
+  display: block;
+  color: #aaa;
+  font-size: 0.72rem;
+  margin-bottom: 8px;
+}
+
+.weather-temp strong {
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.weather-tip {
+  color: #c7c9c5;
+  font-size: 0.83rem;
+  line-height: 1.7;
+  min-height: 48px;
+}
+
+.weather-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #d1b98c;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #8e7b5e;
+  padding-bottom: 5px;
+}
+
+.weather-link:hover {
+  color: white;
+}
+
+.weather-source {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.weather-source a {
+  color: #d1b98c;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .weather-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .weather-section {
+    padding: 70px 6%;
+  }
+
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .is-visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
