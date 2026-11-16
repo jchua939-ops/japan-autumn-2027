@@ -1,0 +1,218 @@
+/* ==================================
+   CINEMATIC INTERACTION UPDATE
+================================== */
+
+/* Scroll reveal */
+.day-inner > *,
+.hero-content > *,
+.panel > *,
+.route-item,
+.budget-row,
+.savings-box {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Stagger individual cards */
+.place-card {
+  opacity: 0;
+  transform: translateX(35px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.7,.2,1),
+    background .3s ease,
+    border-color .3s ease;
+}
+
+.place-card.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.place-card:nth-child(2) { transition-delay: .12s; }
+.place-card:nth-child(3) { transition-delay: .24s; }
+.place-card:nth-child(4) { transition-delay: .36s; }
+
+/* Cinematic background movement */
+.day {
+  background-size: 110% auto;
+  background-position: center calc(50% + var(--parallax, 0px));
+  transition: background-position .15s linear;
+}
+
+.hero {
+  background-size: 110% auto;
+  background-position: center;
+}
+
+/* Left-side attraction preview */
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(7px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+
+.preview-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.preview-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: min(520px, 48vw);
+  overflow-y: auto;
+  background: #171714;
+  transform: translateX(-100%);
+  transition: transform .7s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 20px 0 70px #0008;
+}
+
+.preview-overlay.open .preview-panel {
+  transform: translateX(0);
+}
+
+.preview-image {
+  height: 48vh;
+  min-height: 260px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.preview-image:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg,#171714,transparent 75%);
+}
+
+.preview-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  background: #0008;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.preview-content {
+  padding: 0 34px 45px;
+  margin-top: -35px;
+  position: relative;
+  z-index: 2;
+}
+
+.preview-kicker {
+  color: #d8b77b;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 10px;
+}
+
+.preview-content h2 {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: clamp(38px,5vw,58px);
+  line-height: 1;
+  margin: 12px 0;
+}
+
+.preview-time {
+  color: #d8b77b;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.preview-description {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #ddd;
+}
+
+.preview-notes {
+  border-top: 1px solid #ffffff30;
+  margin-top: 25px;
+  padding-top: 20px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #bbb;
+}
+
+.preview-notes strong {
+  color: #d8b77b;
+  font-weight: 500;
+}
+
+body.preview-open {
+  overflow: hidden;
+}
+
+.place-card {
+  cursor: pointer;
+}
+
+.place-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Mobile layout */
+@media(max-width:700px) {
+  .preview-panel {
+    width: 92vw;
+  }
+
+  .preview-image {
+    height: 38vh;
+  }
+
+  .preview-content {
+    padding: 0 24px 35px;
+  }
+
+  .day {
+    background-size: auto 110%;
+  }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media(prefers-reduced-motion:reduce) {
+  *, *:before, *:after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+
+  .day-inner > *,
+  .hero-content > *,
+  .panel > *,
+  .route-item,
+  .budget-row,
+  .savings-box,
+  .place-card {
+    opacity: 1;
+    transform: none;
+  }
+}
